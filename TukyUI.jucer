@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="o5c7us" name="TukyUI" projectType="library" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="eODbUG" name="TukyUI">
+    <GROUP id="{76029623-4A8F-93B4-9B8E-3AA2156E11AE}" name="Source">
+      <FILE id="Fbhmfa" name="TukyComponents.cpp" compile="1" resource="0"
+            file="Source/TukyComponents.cpp"/>
+      <FILE id="lryG0A" name="TukyUI.cpp" compile="1" resource="0" file="Source/TukyUI.cpp"/>
+      <FILE id="lAbWsO" name="TukyComponents.h" compile="0" resource="0"
+            file="Source/TukyComponents.h"/>
+      <FILE id="ICTIfm" name="TukyUI.h" compile="0" resource="0" file="Source/TukyUI.h"/>
+      <FILE id="imhxqI" name="TukyColors.h" compile="0" resource="0" file="Source/TukyColors.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="TukyUI"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="TukyUI"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_graphics" path="../../../Documents/JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../Documents/JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../Documents/JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../Documents/JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../Documents/JUCE/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../Documents/JUCE/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
