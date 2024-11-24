@@ -4,13 +4,14 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="eODbUG" name="TukyUI">
     <GROUP id="{76029623-4A8F-93B4-9B8E-3AA2156E11AE}" name="Source">
-      <FILE id="Fbhmfa" name="TukyComponents.cpp" compile="1" resource="0"
-            file="Source/TukyComponents.cpp"/>
       <FILE id="lryG0A" name="TukyUI.cpp" compile="1" resource="0" file="Source/TukyUI.cpp"/>
-      <FILE id="lAbWsO" name="TukyComponents.h" compile="0" resource="0"
-            file="Source/TukyComponents.h"/>
       <FILE id="ICTIfm" name="TukyUI.h" compile="0" resource="0" file="Source/TukyUI.h"/>
       <FILE id="imhxqI" name="TukyColors.h" compile="0" resource="0" file="Source/TukyColors.h"/>
+      <FILE id="ugTF7P" name="TukyFonts.h" compile="0" resource="0" file="Source/TukyFonts.h"/>
+      <FILE id="cApaMV" name="TukyComponents.cpp" compile="1" resource="0"
+            file="Source/TukyComponents.cpp"/>
+      <FILE id="pT3JeO" name="TukyComponents.h" compile="0" resource="0"
+            file="Source/TukyComponents.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
