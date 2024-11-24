@@ -20,9 +20,9 @@ namespace TukyUI
     public:
         TukyUI()
         {
-            setColour(juce::Slider::thumbColourId, Colors::accent);
-            setColour(juce::Slider::trackColourId, Colors::primary);
-            setColour(juce::Label::textColourId, Colors::text);
+            setColour(juce::Slider::thumbColourId, Colors::beige);
+            setColour(juce::Slider::trackColourId, Colors::green);
+            setColour(juce::Label::textColourId, Colors::green);
         }
     };
 }

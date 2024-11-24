@@ -13,9 +13,10 @@
 
 namespace TukyUI {
     namespace Colors {
-        const juce::Colour background = juce::Colour::fromRGB(10, 10, 30);
-        const juce::Colour primary = juce::Colour::fromRGB(100, 200, 255);
-        const juce::Colour accent = juce::Colour::fromRGB(255, 100, 150);
-        const juce::Colour text = juce::Colour::fromRGB(230, 230, 230);
+        const juce::Colour background = juce::Colour::fromString("#303030");
+        const juce::Colour bluegray = juce::Colour::fromString("#7b8a84");
+        const juce::Colour blue = juce::Colour::fromString("#8cbfaf");
+        const juce::Colour beige = juce::Colour::fromString("#ede7d5");
+        const juce::Colour green = juce::Colour::fromString("#b7cc18");
     }
 }
