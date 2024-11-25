@@ -1,7 +1,10 @@
 # TukyUI
 
-![TukyUI](TukyUI.png)
+<!-- ![TukyUI](TukyUI.png) -->
 
+<div style="align-items: center">
+  <img src="TukyUI.png" alt="Descripción del logo">
+</div>
 ---
 
 UI Static Library for visual component of Tuky Plugins Bundle
