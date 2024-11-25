@@ -28,7 +28,7 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="TukyUI"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="TukyUI" postbuildCommand="if not exist &quot;../../TukyUI&quot; mkdir ../../TukyUI&#10;xcopy ..\..\Source\*.h  ..\..\TukyUI\ /Y&#10;xcopy &quot;$(targetPath)&quot; ..\..\TukyUI\ /Y"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="TukyUI"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

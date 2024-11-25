@@ -11,6 +11,7 @@
 #pragma once
 #include <juce_gui_basics/juce_gui_basics.h>
 
+// Fonts configuration
 namespace TukyUI {
     namespace Fonts {
         const juce::Font title = juce::Font("Audiowide", 24.0f, juce::Font::bold);

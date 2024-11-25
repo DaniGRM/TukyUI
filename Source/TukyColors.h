@@ -11,6 +11,7 @@
 #pragma once
 #include <juce_gui_basics/juce_gui_basics.h>
 
+// Colors palette
 namespace TukyUI {
     namespace Colors {
         const juce::Colour background = juce::Colour::fromRGB(48, 48, 48);
