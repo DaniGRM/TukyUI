@@ -13,6 +13,10 @@
 namespace TukyUI {
     namespace Components {
 
+        // =============
+        // ROTARY SLIDER
+        // =============
+        
         // Slider own lookAndFeel to override drawRotarySlider
         struct LookAndFeel : juce::LookAndFeel_V4
         {
@@ -48,6 +52,19 @@ namespace TukyUI {
             LookAndFeel lnf;
             // Param itself to attach component
             juce::RangedAudioParameter* param;
+        };
+
+        // =============
+        // HEADER
+        // =============
+
+
+        struct TukyHeader : public juce::Component
+        {
+        public:
+            TukyHeader() {}
+
+            void paint(juce::Graphics& g) override;
         };
     }
 }

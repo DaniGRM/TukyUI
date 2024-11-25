@@ -10,7 +10,11 @@
 
 #include "TukyComponents.h"
 #include "TukyColors.h"
+#include "BinaryData.h"
 
+// =============
+// ROTARY SLIDER
+// =============
 
 // Function inherit from LookAndFeel_V4 that draw the slider
 void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
@@ -105,4 +109,31 @@ juce::Rectangle<int> TukyUI::Components::TukyRotarySlider::getSliderBounds() con
     r.setY(2);
 
     return r;
+}
+
+// =============
+// HEADER
+// =============
+// Function to paint a bar on the top with the company logo
+void TukyUI::Components::TukyHeader::paint(juce::Graphics& g){
+    {
+        auto bounds = getLocalBounds().toFloat();
+        // Set the background of bar
+        g.fillAll(TukyUI::Colors::bluegray);
+
+        // Draw the logo
+        auto logoHeight = bounds.getHeight() * 0.8;// Ajustamos el tamaño del logo
+        auto logoWidth = (logoHeight * 3.0f); // Relación de aspecto 4:3
+        auto logoBounds = juce::Rectangle<float>(10.0f, (bounds.getHeight() - logoHeight) / 2.0f, logoWidth, logoHeight);
+
+
+        auto logoImage = juce::ImageFileFormat::loadFrom(BinaryData::TUKY_imagotipo2_png, BinaryData::TUKY_imagotipo2_pngSize);
+
+        // Only draw it if is valid
+        if (logoImage.isValid())
+        {
+            g.drawImage(logoImage, logoBounds);
+
+        }
+    }
 }

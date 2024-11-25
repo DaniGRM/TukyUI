@@ -11,7 +11,8 @@
 #pragma once
 #include <juce_gui_basics/juce_gui_basics.h>
 #include "TukyColors.h"
-
+#include "TukyComponents.h"
+#include "TukyFonts.h"
 
 namespace TukyUI
 {
