@@ -62,9 +62,13 @@ namespace TukyUI {
         struct TukyHeader : public juce::Component
         {
         public:
-            TukyHeader() {}
+            TukyHeader(juce::String p) {
+                pluginName = p;
+            }
 
             void paint(juce::Graphics& g) override;
+
+            juce::String pluginName;
         };
     }
 }

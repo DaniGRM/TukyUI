@@ -15,6 +15,7 @@
     </GROUP>
     <FILE id="H3sQTm" name="TUKY_imagotipo2.png" compile="0" resource="1"
           file="../resources/TUKY_imagotipo2.png"/>
+    <FILE id="Bq1Mhw" name="TUKY_logo.png" compile="0" resource="1" file="../resources/TUKY_logo.png"/>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

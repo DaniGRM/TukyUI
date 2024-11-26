@@ -10,6 +10,7 @@
 
 #include "TukyComponents.h"
 #include "TukyColors.h"
+#include "TukyFonts.h"
 #include "BinaryData.h"
 
 // =============
@@ -123,16 +124,20 @@ void TukyUI::Components::TukyHeader::paint(juce::Graphics& g){
 
         // Draw the logo
         auto logoHeight = bounds.getHeight() * 0.8;// Ajustamos el tamaño del logo
-        auto logoWidth = (logoHeight * 3.0f); // Relación de aspecto 4:3
+        auto logoWidth = (logoHeight * 1.0f); // Relación de aspecto 4:3
         auto logoBounds = juce::Rectangle<float>(10.0f, (bounds.getHeight() - logoHeight) / 2.0f, logoWidth, logoHeight);
+        auto nameBounds = juce::Rectangle<float>(logoBounds.getX() + logoBounds.getWidth() + 10.f, (bounds.getHeight() - logoHeight) / 2.0f, bounds.getWidth() - logoWidth, logoHeight);
 
 
-        auto logoImage = juce::ImageFileFormat::loadFrom(BinaryData::TUKY_imagotipo2_png, BinaryData::TUKY_imagotipo2_pngSize);
+        auto logoImage = juce::ImageFileFormat::loadFrom(BinaryData::TUKY_logo_png, BinaryData::TUKY_logo_pngSize);
 
         // Only draw it if is valid
         if (logoImage.isValid())
         {
             g.drawImage(logoImage, logoBounds);
+            g.setFont(TukyUI::Fonts::title);
+            g.setColour(TukyUI::Colors::beige);
+            g.drawText(pluginName, nameBounds, juce::Justification::centredLeft);
 
         }
     }
