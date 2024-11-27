@@ -13,9 +13,9 @@
 #include "TukyFonts.h"
 #include "BinaryData.h"
 
-// =============
-// ROTARY SLIDER
-// =============
+
+// LOOK AND FEEL
+
 
 // Function inherit from LookAndFeel_V4 that draw the slider
 void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
@@ -23,7 +23,6 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     float rotaryEndAngle, juce::Slider& slider)
 {
     using namespace juce;
-
     // Set bounds
     auto bounds = Rectangle<float>(x, y, width, height);
 
@@ -69,6 +68,53 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     g.fillPath(p);
 }
 
+void TukyUI::Components::LookAndFeel::drawToggleButton(juce::Graphics& g, juce::ToggleButton& button,
+    bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown)
+{
+    using namespace juce;
+
+    auto bounds = button.getLocalBounds().toFloat();
+
+    int circleSide = bounds.getHeight() * 0.8f;
+    int initCoord = bounds.getHeight() * 0.1f;
+    juce::Rectangle<float> rectangleBounds(initCoord, initCoord, circleSide, circleSide);
+
+    float circleRate = 0.6f;
+    juce::Rectangle<float> insideBounds(initCoord + circleSide * (1.f - circleRate) / 2.f, initCoord + circleSide * (1.f - circleRate) / 2.f, circleSide * circleRate, circleSide * circleRate);
+    auto isOn = button.getToggleState();
+
+
+    // Borde del botón (cambia si está resaltado)
+    g.setColour(shouldDrawButtonAsHighlighted ? TukyUI::Colors::blue.brighter(0.2f) : TukyUI::Colors::blue);
+    g.drawEllipse(rectangleBounds, 2.0f);
+
+    if (isOn)
+    {
+        g.setColour(TukyUI::Colors::blue);
+        g.fillEllipse(insideBounds);
+    }
+    else
+    {
+        g.setColour(TukyUI::Colors::background);
+        g.fillEllipse(insideBounds);
+    }
+
+    // Texto del botón
+    auto textBounds = bounds.removeFromRight(bounds.getWidth() - bounds.getHeight());
+    textBounds.removeFromLeft(5.f);
+    g.setFont(TukyUI::Fonts::label);
+    g.setColour(TukyUI::Colors::blue);
+    g.drawFittedText(button.getButtonText(), textBounds.toNearestInt(), Justification::centredLeft, 1);
+}
+
+
+
+
+// =============
+// ROTARY SLIDER
+// =============
+
+
 void TukyUI::Components::TukyRotarySlider::paint(juce::Graphics& g) {
     using namespace juce;
 
@@ -110,6 +156,21 @@ juce::Rectangle<int> TukyUI::Components::TukyRotarySlider::getSliderBounds() con
     r.setY(2);
 
     return r;
+}
+
+// =============
+// TOGGLE BUTTON
+// =============
+
+void TukyUI::Components::TukyToggleButton::paint(juce::Graphics& g) {
+    using namespace juce;
+
+    // Obtener los parámetros necesarios para drawToggleButton
+    bool shouldDrawButtonAsHighlighted = isMouseOver();  // Por ejemplo, el botón se destaca si el ratón está sobre él
+    bool shouldDrawButtonAsDown = getToggleState(); // El estado del botón (activado o desactivado)
+
+    // Llamada a drawToggleButton para dibujar el toggle con los parámetros obtenidos
+    getLookAndFeel().drawToggleButton(g, *this, shouldDrawButtonAsHighlighted, shouldDrawButtonAsDown);
 }
 
 // =============

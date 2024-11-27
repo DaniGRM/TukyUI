@@ -16,13 +16,17 @@ namespace TukyUI {
         // =============
         // ROTARY SLIDER
         // =============
-        
+
         // Slider own lookAndFeel to override drawRotarySlider
         struct LookAndFeel : juce::LookAndFeel_V4
         {
+
             void drawRotarySlider(juce::Graphics& g, int x, int y, int width, int height,
                 float sliderPosProportional, float rotaryStartAngle,
                 float rotaryEndAngle, juce::Slider& slider) override;
+
+            void drawToggleButton(juce::Graphics&, juce::ToggleButton&,
+                bool shouldDrawButtonAsHighlighted, bool shouldDrawButtonAsDown) override;
         };
 
         // TukyRotarySlider inherit from Slider, we are goind to declare and define
@@ -55,9 +59,30 @@ namespace TukyUI {
         };
 
         // =============
-        // HEADER
+        // TOGGLE BUTTON
         // =============
 
+        struct TukyToggleButton : juce::ToggleButton
+        {
+            TukyToggleButton()
+            {
+                setLookAndFeel(&lnf);
+            }
+
+            ~TukyToggleButton() {
+                setLookAndFeel(nullptr);
+            }
+
+            void paint(juce::Graphics& g) override;
+        private:
+
+            // Slider own LookAndFeel
+            LookAndFeel lnf;
+        };
+
+        // =============
+        // HEADER
+        // =============
 
         struct TukyHeader : public juce::Component
         {
