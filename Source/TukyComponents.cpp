@@ -25,7 +25,6 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     using namespace juce;
     // Set bounds
     auto bounds = Rectangle<float>(x, y, width, height);
-
     // Set color to background to make it seems transparent
     // and fill an ellipse inside of the bounds setted
     g.setColour(Colors::background);
@@ -147,7 +146,7 @@ juce::Rectangle<int> TukyUI::Components::TukyRotarySlider::getSliderBounds() con
     auto size = juce::jmin(bounds.getWidth(), bounds.getHeight());
 
     // Substract for text height
-    size -= getTextHeight() * 2;
+    size -= 5.f;
 
     // Create rectangle in order to be the bounds itself
     juce::Rectangle<int> r;
