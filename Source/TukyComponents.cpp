@@ -66,7 +66,7 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
         mark_r.setBottom(sliderBounds.getY() - 10);
 
         auto m_r = mark_r.transformedBy(AffineTransform().rotated(markAngle, center.getX(), center.getY()));
-
+        g.setFont(TukyUI::Fonts::mark);
         g.drawFittedText(marks[i], m_r.toNearestInt(), juce::Justification::centred, 1);
 
         markAngle += angleStep;

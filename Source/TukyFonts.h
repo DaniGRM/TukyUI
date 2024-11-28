@@ -16,5 +16,6 @@ namespace TukyUI {
     namespace Fonts {
         const juce::Font title = juce::Font("Audiowide", 24.0f, juce::Font::bold);
         const juce::Font label = juce::Font("Audiowide", 15.0f, juce::Font::plain);
+        const juce::Font mark = juce::Font("Audiowide", 10.0f, juce::Font::plain);
     }
 }
