@@ -25,18 +25,52 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     using namespace juce;
     // Set bounds
     auto bounds = Rectangle<float>(x, y, width, height);
+
+
+    auto sliderBounds = Rectangle<float>(bounds.getX() + bounds.getWidth() * 0.15f,
+        bounds.getY() + bounds.getHeight() * 0.15f,
+        bounds.getWidth() * 0.7f, bounds.getHeight() * 0.7f);
+
+
     // Set color to background to make it seems transparent
     // and fill an ellipse inside of the bounds setted
     g.setColour(Colors::background);
-    g.fillEllipse(bounds);
+    g.fillEllipse(sliderBounds);
 
+
+    juce::Array<juce::String> marks = {};
+    if (auto* customSlider = dynamic_cast<TukyRotarySlider*>(&slider))
+    {
+        marks = customSlider->getMarks();
+    }
 
     // Change color to blue to draw a line around the ellipse of width 2.f
     g.setColour(Colors::blue);
-    g.drawEllipse(bounds, 2.f);
+    g.drawEllipse(sliderBounds, 2.f);
 
+
+
+    float angleStep = (rotaryEndAngle - rotaryStartAngle) / (marks.size() - 1);
+    float markAngle = rotaryStartAngle;
     // Get the center of the ellipse to take radial reference
     auto center = bounds.getCentre();
+
+    for (int i = 0; i < marks.size(); i++) {
+        Path mark_p;
+
+        Rectangle<float> mark_r;
+
+        mark_r.setLeft(center.getX() - 10);
+        mark_r.setRight(center.getX() + 10);
+        mark_r.setTop(sliderBounds.getY() - 20);
+        mark_r.setBottom(sliderBounds.getY() - 10);
+
+        auto m_r = mark_r.transformedBy(AffineTransform().rotated(markAngle, center.getX(), center.getY()));
+
+        g.drawFittedText(marks[i], m_r.toNearestInt(), juce::Justification::centred, 1);
+
+        markAngle += angleStep;
+    }
     // Create a path to create a little dot that points to current value
     Path p;
 
@@ -54,8 +88,8 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     Rectangle<float> r;
     r.setLeft(center.getX() - 4);
     r.setRight(center.getX() + 4);
-    r.setTop(bounds.getY() + 6);
-    r.setBottom(bounds.getY() + 14);
+    r.setTop(sliderBounds.getY() + 6);
+    r.setBottom(sliderBounds.getY() + 14);
 
     p.addEllipse(r);
 

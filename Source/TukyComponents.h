@@ -49,11 +49,21 @@ namespace TukyUI {
 
             void paint(juce::Graphics& g) override;
             juce::Rectangle<int> getSliderBounds() const;
-            int getTextHeight() const { return 15; }
+
+            void setMarks(juce::Array<juce::String> m) {
+                marks = m;
+            }
+
+            juce::Array<juce::String> getMarks() {
+                return marks;
+            }
         private:
             
             // Slider own LookAndFeel
             LookAndFeel lnf;
+
+            // String array for marks
+            juce::Array<juce::String> marks;
             // Param itself to attach component
             juce::RangedAudioParameter* param;
         };
