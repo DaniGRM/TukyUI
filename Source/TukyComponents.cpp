@@ -46,8 +46,6 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
             bounds.getWidth() * 0.8f,
             bounds.getHeight() * 0.8f);
     }
-    g.setColour(juce::Colours::red);
-    g.drawRect(bounds);
     // Set color to background to make it seems transparent
     // and fill an ellipse inside of the bounds setted
     g.setColour(Colors::background);

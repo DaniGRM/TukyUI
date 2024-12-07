@@ -31,8 +31,8 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="TukyUI" postbuildCommand="if not exist &quot;../../TukyUI&quot; mkdir ../../TukyUI&#10;xcopy ..\..\Source\*.h  ..\..\TukyUI\ /Y&#10;xcopy &quot;$(targetPath)&quot; ..\..\TukyUI\ /Y"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="TukyUI"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="TukyUI" postbuildCommand="if not exist &quot;../../Debug/TukyUI&quot; mkdir ../../TukyUI&#10;xcopy ..\..\Source\*.h  ..\..\Debug\TukyUI\ /Y&#10;xcopy &quot;$(targetPath)&quot; ..\..\Debug\TukyUI\ /Y&#10;&#10;if not exist &quot;C:\Users\danii\Desktop\PORTFOLIO\TukTuky\Builds\VisualStudio2022\TukyUI&quot; mkdir C:\Users\danii\Desktop\PORTFOLIO\TukTuky\Builds\VisualStudio2022\TukyUI&#10;xcopy ..\..\Source\*.h  C:\Users\danii\Desktop\PORTFOLIO\TukTuky\Builds\VisualStudio2022\TukyUI\ /Y&#10;xcopy &quot;$(targetPath)&quot; C:\Users\danii\Desktop\PORTFOLIO\TukTuky\Builds\VisualStudio2022\TukyUI\ /Y"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="TukyUI" postbuildCommand="if not exist &quot;../../Release/TukyUI&quot; mkdir ../../TukyUI&#10;xcopy ..\..\Source\*.h  ..\..\Release\TukyUI\ /Y&#10;xcopy &quot;$(targetPath)&quot; ..\..\Release\TukyUI\ /Y"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_graphics" path="../../../Documents/JUCE/JUCE/modules"/>
