@@ -26,29 +26,40 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     // Set bounds
     auto bounds = Rectangle<float>(x, y, width, height);
 
-
-    auto sliderBounds = Rectangle<float>(bounds.getX() + bounds.getWidth() * 0.15f,
-        bounds.getY() + bounds.getHeight() * 0.15f,
-        bounds.getWidth() * 0.7f, bounds.getHeight() * 0.7f);
-
-
-    // Set color to background to make it seems transparent
-    // and fill an ellipse inside of the bounds setted
-    g.setColour(Colors::background);
-    g.fillEllipse(sliderBounds);
-
-
     juce::Array<juce::String> marks = {};
     if (auto* customSlider = dynamic_cast<TukyRotarySlider*>(&slider))
     {
         marks = customSlider->getMarks();
     }
 
+    auto sliderBounds = bounds;
+    if (marks.size() > 0) {
+        sliderBounds = Rectangle<float>(bounds.getX() + bounds.getWidth() * 0.2f,
+            bounds.getY() + bounds.getHeight() * 0.2f,
+            bounds.getWidth() * 0.6f,
+            bounds.getHeight() * 0.6f);
+
+    }
+    else {
+        sliderBounds = Rectangle<float>(bounds.getX() + bounds.getWidth() * 0.1f,
+            bounds.getY() + bounds.getHeight() * 0.1f,
+            bounds.getWidth() * 0.8f,
+            bounds.getHeight() * 0.8f);
+    }
+    g.setColour(juce::Colours::red);
+    g.drawRect(bounds);
+    // Set color to background to make it seems transparent
+    // and fill an ellipse inside of the bounds setted
+    g.setColour(Colors::background);
+    g.fillEllipse(sliderBounds);
+
+
+
     // Change color to blue to draw a line around the ellipse of width 2.f
     g.setColour(Colors::blue);
     g.drawEllipse(sliderBounds, 2.f);
 
-
+    //sliderBounds = sliderBounds.withY(sliderBounds.getY() + 5);
 
     float angleStep = (rotaryEndAngle - rotaryStartAngle) / (marks.size() - 1);
     float markAngle = rotaryStartAngle;
@@ -62,8 +73,8 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
 
         mark_r.setLeft(center.getX() - 10);
         mark_r.setRight(center.getX() + 10);
-        mark_r.setTop(sliderBounds.getY() - 20);
-        mark_r.setBottom(sliderBounds.getY() - 10);
+        mark_r.setTop(sliderBounds.getY() - 15);
+        mark_r.setBottom(sliderBounds.getY() - 5);
 
         auto m_r = mark_r.transformedBy(AffineTransform().rotated(markAngle, center.getX(), center.getY()));
         g.setFont(TukyUI::Fonts::mark);
@@ -86,10 +97,13 @@ void TukyUI::Components::LookAndFeel::drawRotarySlider(juce::Graphics& g, int x,
     // 14 - 6   = 8; 
     // so we have a perfect circle
     Rectangle<float> r;
-    r.setLeft(center.getX() - 4);
-    r.setRight(center.getX() + 4);
-    r.setTop(sliderBounds.getY() + 6);
-    r.setBottom(sliderBounds.getY() + 14);
+
+
+    int dotSize = static_cast<int>(sliderBounds.getHeight()) / 23;
+    r.setLeft(center.getX() - dotSize);
+    r.setRight(center.getX() + dotSize);
+    r.setTop(sliderBounds.getY() + 4);
+    r.setBottom(sliderBounds.getY() + 4 + dotSize*2);
 
     p.addEllipse(r);
 
@@ -135,7 +149,7 @@ void TukyUI::Components::LookAndFeel::drawToggleButton(juce::Graphics& g, juce::
     // Texto del botón
     auto textBounds = bounds.removeFromRight(bounds.getWidth() - bounds.getHeight());
     textBounds.removeFromLeft(5.f);
-    g.setFont(TukyUI::Fonts::label);
+    g.setFont(TukyUI::Fonts::smLabel);
     g.setColour(TukyUI::Colors::blue);
     g.drawFittedText(button.getButtonText(), textBounds.toNearestInt(), Justification::centredLeft, 1);
 }
